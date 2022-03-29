@@ -1,0 +1,51 @@
+.chat-wrapper{
+    display:grid;
+    grid-template-columns: 300px 1fr;
+    height:100vh;
+    .left-content{
+        background-color: rgb(80, 6, 80);
+        color: white;
+        height:100%;
+        .friend-list{
+            .item{
+                padding: 10px;
+                .offline:before,.online::before{
+                    content: "";
+                    border-radius: 50%;
+                    width: 12px;
+                    height: 12px;
+                    display: inline-block;
+                    margin-right:5px;
+                }
+                .offline:before{
+                    background-color:rgb(235, 150, 150)
+                }
+                .online:before{
+                    background-color:rgb(15, 187, 15);
+                }
+            }
+            .item:hover{
+                background-color:gray;
+                cursor: pointer;
+            }
+        }
+        .logout{
+            width: 100%;
+            max-width: 280px;
+            background-color:white;
+            font-weight:bold;
+            margin-inline:10px;
+            height:30px;
+        }
+    }
+    .right-content{
+        padding: 10px;
+        .offlineStatus{
+            padding:10px;
+            text-align: center;
+            background-color:gray;
+            color: rgb(255, 255, 255);
+            margin-bottom: 10px;
+        }
+    }
+}

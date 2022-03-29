@@ -1,0 +1,20 @@
+<div class="chat-wrapper">
+  <div class="left-content">
+    <div class="friend-list">
+      <div class="item" *ngFor="let f of users$ | async" (click)="chatWithId(f)">
+        <h3>[{{f.id}}] - {{f.name}}</h3>
+        <span class="online" [ngClass]="{'online':f.online,'offline':!f.online}">{{f.online?"Online":"Offline"}}</span> 
+      </div>
+    </div>
+    <hr style="margin:10px;">
+    <button class="logout" (click)="logout()">Logout</button>
+  </div>
+  <div class="right-content">
+
+    <div class="offlineStatus">
+      <h3>Your network is down</h3>
+    </div>
+
+    <app-chat-box #chatBox [getData]="sendData" [getList$]="users$" [getYourId]="yourId" *ngIf="isChatWith"></app-chat-box>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+.container{
+    padding: 10px;
+    .offlineStatus{
+        padding:10px;
+        background-color:rgb(133, 133, 38);
+        color: rgb(224, 115, 115);
+    }
+    .title{
+        .name{
+            border-radius: 5px;
+            color: white;
+            background-color: rgb(160, 151, 35);
+            padding-inline:5px;
+        }
+        padding:10px;
+        border:1.2px solid gray;
+        text-align: center;
+        .offline:before,.online::before{
+            content: "";
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            margin-right:5px;
+        }
+        .offline:before{
+            background-color:rgb(235, 150, 150)
+        }
+        .online:before{
+            background-color:rgb(15, 187, 15);
+        }
+    }
+    .chat-box{
+        margin-top: 10px;
+        padding:10px;
+        border:1.2px solid gray;
+        height:300px;
+        overflow:auto;
+        .chat-item{
+            margin-bottom: 10px;
+            .name{
+                margin-bottom: 8px;
+            }
+            .text-content{
+                max-width: 400px;
+                position:relative;
+                min-height: 50px;
+                padding: 10px;
+                border-radius: 5px;
+                display:inline-block;
+                --size:20px;
+            }
+            .text-content::before{
+                position:absolute;
+                content: "";
+                border-left:var(--size) solid transparent;
+                border-right:var(--size) solid transparent;
+                top: -10px;
+            }
+        }
+        .chat-item-left{
+            .text-content{
+                background-color:#EFEFEF;
+            }
+            .text-content::before{
+                border-bottom:var(--size) solid #EFEFEF;
+            }
+        }
+        .chat-item-right{
+            text-align: right;
+            .text-content{
+                background-color:#E8F1F3;
+            }
+            .text-content::before{
+                border-bottom:var(--size) solid #E8F1F3;
+                right:10px;
+            }
+        }
+    }
+    .sendMessage{
+        margin-top: 10px;
+        display:flex;
+        height:50px;
+        gap: 5px;
+        // grid-template-columns: 8fr 1fr;
+        textarea{
+            padding: 5px;
+            width: 100%;
+            border-radius: 0;
+        }
+        input{
+            padding: 5px;
+            width: 100%;
+        }
+        button{
+            width: 100%;
+            max-width:80px;
+            border-radius: 0;
+        }
+    }
+}

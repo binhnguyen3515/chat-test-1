@@ -1,0 +1,2 @@
+<input type="number" placeholder="UserID..." #input (keyup)="$event.keyCode == 13 && login(input.value)">
+<button (click)="login(input.value)">Login</button>

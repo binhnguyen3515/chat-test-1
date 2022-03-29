@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="title">
+    <h2>You are chatting with <span class="name">{{(friendData.name)}}</span></h2>
+    <ng-container *ngFor="let g of getList$ | async">
+      <ng-container *ngIf="g.id===friendData.id">
+        <small [ngClass]="{'online':g.online,'offline':!g.online}">[{{friendData.id}}] </small>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <div class="chat-box">
+    <ng-container *ngFor="let r of chatList">
+      <div class="chat-item-left chat-item" *ngIf="r.id!==undefined && r.id != getYourId">
+        <p class="name">{{r.id}}</p>
+        <span class="text-content">{{r.message}}</span>
+      </div>
+      <div class="chat-item-right chat-item" *ngIf="r.id!==undefined && r.id == getYourId">
+        <p class="name">{{r.id}}</p>
+        <span class="text-content">{{r.message}}</span>
+      </div>
+      <!-- <div class="chat-item-right chat-item">
+        <p class="name">Phồng Tép</p>
+        <span class="text-content">Hi asdasdasdzczxczxczxccacacacaczaczczcacczzxczcadsczxc</span>
+      </div>
+      <div class="chat-item-right chat-item">
+        <p class="name">Phồng Tép</p>
+        <span class="text-content">Hi asdasdasdzczxczxczxccacacacaczaczczcacczzxczcadsczxc</span>
+      </div> -->
+    </ng-container>
+  </div>
+
+  <div class="sendMessage" [formGroup]="formChat">
+    <input #input formControlName="message"
+    (keyup)="$event.keyCode == 13 && sendMsg(input.value)"
+    placeholder="Enter some text...">
+    <button (click)="sendMsg(input.value)">Send</button>
+  </div>
+</div>
